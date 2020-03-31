@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST</title>
+
+    <!-- STYLSHEET -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- JAVASCRIPT -->
+    <script defer src="api-client.js"></script>
+    <script defer src="script.js"></script>
+
+</head>
+<body>
+    
+    <div id="mainWrapper">
+        
+        <h1>TO DO LIST</h1>
+
+        <div id="searchBar">
+            <input type="text" id="input" placeholder="Add a new task">
+            <button id="addTask">ADD TASK</button>
+        </div>
+
+        <div id="taskBox"></div>
+        <button id="clearBtn">CLEAR LIST</button>
+
+    </div>  
+
+    <!-- HIDDEN ELEMENT -->
+    <div id="task">
+        <p>This is an item</p>
+        <div class="icons">
+            <img class="checkIcon" src="images/check.svg" alt="check">
+            <img class="editIcon" src="images/edit.svg" alt="edit">
+            <img class="deleteIcon" src="images/delete.svg" alt="delete">
+        </div>
+    </div>
+
+    <!-- HIDDEN ELEMENT -->
+    <div id="popUp">
+        <p id="closeBtn">X</p>
+        <input id="editName" type="text" placeholder="Enter new name">
+        <button id="editBtn">EDIT NAME</button>
+    </div>
+
+</body>
+</html>
