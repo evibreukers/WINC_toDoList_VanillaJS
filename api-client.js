@@ -2,16 +2,16 @@
 const getData = async function(){
     const apiUrl = `https://wincacademydatabase.firebaseio.com/evi/tasks.json`
     try {
-        const result = await fetch(apiUrl, { method: "GET" })
+        const result = await fetch(apiUrl, { method: 'GET' })
         const data = await result.json()
 
-        console.log("Before (the raw result):", data);
+        console.log('Before (the raw result):', data);
         let tasks = Object.keys(data).map(key => ({
             id: key,
             description: data[key].description,
             done: data[key].done
         }));
-        console.log("After the tasks array", tasks);
+        console.log('After the tasks array', tasks);
 
         return tasks
     } catch (error) {
@@ -24,7 +24,7 @@ const postData = async function(task){
     const apiUrl = `https://wincacademydatabase.firebaseio.com/evi/tasks.json`
     try {
         const newPost = await fetch(apiUrl, { 
-            method: "POST",
+            method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -43,7 +43,7 @@ const editTask = async function(task, taskID){
     const apiUrl = `https://wincacademydatabase.firebaseio.com/evi/tasks/${taskID}.json`
     try {
         const deletePost = await fetch(apiUrl, { 
-            method: "PUT",
+            method: 'PUT',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -61,7 +61,7 @@ const editDone = async function(task, taskID){
     const apiUrl = `https://wincacademydatabase.firebaseio.com/evi/tasks/${taskID}.json`
     try {
         const deletePost = await fetch(apiUrl, { 
-            method: "PUT",
+            method: 'PUT',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -79,7 +79,7 @@ const deleteTask = async function(taskID){
     const apiUrl = `https://wincacademydatabase.firebaseio.com/evi/tasks/${taskID}.json`
     try {
         await fetch(apiUrl, { 
-            method: "DELETE",
+            method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
@@ -97,7 +97,7 @@ const deleteAll = async function(taskID){
     const apiUrl = `https://wincacademydatabase.firebaseio.com/evi/tasks.json`
     try {
         await fetch(apiUrl, { 
-            method: "DELETE",
+            method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'

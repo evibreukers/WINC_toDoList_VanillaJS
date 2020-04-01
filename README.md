@@ -4,10 +4,12 @@ Winc Academy's 3rd project of the Front-end Development traineeship
 
 ## 💬 Project Goal
 
-The goal is making a to-do-list app using JavaScript and a database (via a RESTful API (1)).
+The project's goal was to create an asynchronous web app that uses API and user data to dynamically update the UI.
 The app is a single webpage containing a task-list and a text area to add new custom tasks. The “add task” button lets the user add a task to the list. It is possible to check the items from the list or remove them. All tasks can be cleared from the list when pressing the "clear all" button.
 
-1) https://firebase.google.com/docs/reference
+## 💬 Tools
+
+HTML, CSS, JavaScript, FireBase(1)
 
 ## 💬 Requirements
 
@@ -26,6 +28,8 @@ The app is a single webpage containing a task-list and a text area to add new cu
 https://evibreukers.github.io/toDoList/
 
 ENJOY!
+
+1) https://firebase.google.com/docs/reference
 
 
 

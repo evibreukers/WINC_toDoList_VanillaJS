@@ -1,6 +1,6 @@
 // load + display current task list
 const loadList = async function(){
-    document.querySelector('#taskBox').innerHTML = ""
+    document.querySelector('#taskBox').innerHTML = ''
     try {
         const taskArray = await getData()
         displayList(taskArray)
@@ -12,13 +12,13 @@ const loadList = async function(){
 const displayList = (array) => {
     if (array === undefined) {
         const message = document.createElement('p')
-        message.innerHTML = "Woohooo all tasks completed"
+        message.innerHTML = 'Woohooo all tasks completed'
         document.querySelector('#taskBox').appendChild(message) 
     } else {
         array.forEach(task => {
             const getTask = document.querySelector('#task').cloneNode(true)
             getTask.id = task.id
-            if (task.done === "true") {
+            if (task.done === 'true') {
                 getTask.classList.add('task', 'done')
             } else {
                 getTask.classList.add('task')
@@ -35,16 +35,16 @@ const displayList = (array) => {
 // add new task
 document.querySelector('#addTask').addEventListener('click', async function(){
     const input = document.querySelector('#input').value
-    if (input === "") {
-        console.log("input required")
+    if (input === '') {
+        console.log('input required')
     } else {
         try {
             const newTask = {}
             newTask.description = input
-            newTask.done = "false"
+            newTask.done = 'false'
             await postData(newTask)
             await loadList()
-            document.querySelector('#input').value = ""
+            document.querySelector('#input').value = ''
         } catch (error) {
             console.log(error)
         }
@@ -58,10 +58,10 @@ const clickCheck = () => {
             const taskID = event.target.parentElement.parentElement.id
             const taskArray = await getData() 
             const updateTask = taskArray.find(task => {return task.id === taskID})
-            if (updateTask.done === "false") {
-                updateTask.done = "true"
+            if (updateTask.done === 'false') {
+                updateTask.done = 'true'
             } else {
-                updateTask.done = "false"
+                updateTask.done = 'false'
             }
             console.log(updateTask)
             await editDone(updateTask, taskID)
@@ -74,7 +74,7 @@ const clickCheck = () => {
 const clickEdit = () => {
     document.querySelectorAll('.editIcon').forEach(icon => {
         icon.addEventListener('click',  function(event){
-            document.querySelector('#popUp').style.display = "block"
+            document.querySelector('#popUp').style.display = 'block'
             const taskID = event.target.parentElement.parentElement.id
             popUpFunction(taskID)
         })
@@ -85,7 +85,7 @@ const clickEdit = () => {
 const popUpFunction = (taskID) => {
     document.querySelector('#editBtn').addEventListener('click', async function(){
         try {
-            document.querySelector('#popUp').style.display = "none"
+            document.querySelector('#popUp').style.display = 'none'
             const taskArray = await getData() 
             const updateTask = taskArray.find(task => {return task.id === taskID})
             updateTask.description = document.querySelector('#newName').value
@@ -100,7 +100,7 @@ const popUpFunction = (taskID) => {
 // close edit pop-up
 const closePopUp = () => {
     document.querySelector('#closeBtn').addEventListener('click', function(){
-        document.querySelector('#popUp').style.display = "none"
+        document.querySelector('#popUp').style.display = 'none'
     })
 }
 
@@ -128,8 +128,6 @@ document.querySelector('#clearBtn').addEventListener('click', async function(){
         console.log(error)
     } 
 })
-
-
 
 // DEFAULT
 loadList()
