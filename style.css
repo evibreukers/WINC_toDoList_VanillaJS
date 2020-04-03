@@ -136,6 +136,19 @@ input[type=text]#input {
     box-sizing: border-box;
 }
 
+#popUpCopy {
+    position: fixed;
+    top: 8vw;
+    left: 6.5vw;
+    z-index: +1;
+    width: 40vw;
+    padding: 2.5vw 5vw 4vw 5vw;
+    background-color: white;
+    border: 0.5vw solid black;
+    border-radius: 1.8vw;
+    box-sizing: border-box;
+}
+
 #closeBtn {
     position: relative;
     margin: 0vw -2vw;

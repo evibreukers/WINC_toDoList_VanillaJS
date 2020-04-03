@@ -5,15 +5,16 @@ const getData = async function(){
         const result = await fetch(apiUrl, { method: 'GET' })
         const data = await result.json()
 
-        console.log('Before (the raw result):', data);
+        //console.log('Before (the raw result):', data);
         let tasks = Object.keys(data).map(key => ({
             id: key,
             description: data[key].description,
             done: data[key].done
         }));
-        console.log('After the tasks array', tasks);
-
+        // message to the console
+        console.log('current task-list:', tasks)
         return tasks
+
     } catch (error) {
         console.log(error)
     }
@@ -32,7 +33,9 @@ const postData = async function(task){
             body: JSON.stringify(task)
         })
         const content = await newPost.json()
-        console.log(`this task posted: ${content}`)
+        // message to the console
+        console.log('task added:', content)
+
     } catch (error) {
         console.log(error)
     }
@@ -42,7 +45,7 @@ const postData = async function(task){
 const editTask = async function(task, taskID){
     const apiUrl = `https://wincacademydatabase.firebaseio.com/evi/tasks/${taskID}.json`
     try {
-        const deletePost = await fetch(apiUrl, { 
+        const editPost = await fetch(apiUrl, { 
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -50,7 +53,9 @@ const editTask = async function(task, taskID){
             },
             body: JSON.stringify(task)
         })
-        console.log(`this task edited: ${taskID}`)
+        // message to the console
+        console.log('this task has been edited:', editPost)
+
     } catch (error) {
         console.log(error)
     }
@@ -60,7 +65,7 @@ const editTask = async function(task, taskID){
 const editDone = async function(task, taskID){
     const apiUrl = `https://wincacademydatabase.firebaseio.com/evi/tasks/${taskID}.json`
     try {
-        const deletePost = await fetch(apiUrl, { 
+        const editPost = await fetch(apiUrl, { 
             method: 'PUT',
             headers: {
                 'Accept': 'application/json',
@@ -68,7 +73,8 @@ const editDone = async function(task, taskID){
             },
             body: JSON.stringify(task)
         })
-        console.log(`this task edited: ${taskID}`)
+        // message to the console
+        console.log('this task has been edited:', editPost)
     } catch (error) {
         console.log(error)
     }
@@ -78,22 +84,23 @@ const editDone = async function(task, taskID){
 const deleteTask = async function(taskID){
     const apiUrl = `https://wincacademydatabase.firebaseio.com/evi/tasks/${taskID}.json`
     try {
-        await fetch(apiUrl, { 
+        const deletePost = await fetch(apiUrl, { 
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(task)
+            }
         })
-        console.log(`this task deleted: ${taskID}`)
+        // message to the console
+        console.log('this task has been deleted:', deletePost)
+
     } catch (error) {
         console.log(error)
     }
 }
 
 // DELETE ALL
-const deleteAll = async function(taskID){
+const deleteAll = async function(){
     const apiUrl = `https://wincacademydatabase.firebaseio.com/evi/tasks.json`
     try {
         await fetch(apiUrl, { 
@@ -101,10 +108,10 @@ const deleteAll = async function(taskID){
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(task)
+            }
         })
-        console.log(`all tasks are deleted`)
+        console.log('all tasks deleted')
+
     } catch (error) {
         console.log(error)
     }
