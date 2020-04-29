@@ -25,7 +25,7 @@ HTML, CSS, JavaScript, API(1)
 
 ## 🚀 Preview
 
-https://evibreukers.github.io/toDoList/
+https://todolist-vanillajs.netlify.app
 
 ENJOY!
 
